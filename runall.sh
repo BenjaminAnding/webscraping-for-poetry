@@ -1,6 +1,7 @@
 mkdir ./authors
 rm -r authors/*/combined.txt
 rm -r authors/*/label.txt
+rm ./labels.txt
 python ./anthmagverse.py 
 python ./anthmasspoets.py 
 python ./elizabethanverse.py 
