@@ -51,7 +51,7 @@ for author in authors:
 		print("File exists")
 
 for i in range(len(authors)):
-	poem = fetch(urls[i])
-	with open("authors/"+authors[i]+"/"+poems[i].encode('ascii','ignore'), 'wb') as poemfile:
-		poemfile.write(poem[0].encode('ascii','ignore'))
+    poem = fetch(urls[i])
+    with open("authors/"+authors[i]+"/"+poems[i].encode('ascii','ignore'), 'wb') as poemfile:
+        poemfile.write(poem[0].encode('ascii','ignore'))
 

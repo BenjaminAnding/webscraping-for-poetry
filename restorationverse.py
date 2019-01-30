@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import urllib
 import os
 import sys
-
+import re
 
 baseurl = 'https://www.bartleby.com'
 response = urllib.urlopen('https://www.bartleby.com/332/')
@@ -55,7 +55,7 @@ for author in authors1:
 		print("File exists")
 
 for i in range(len(authors)):
-	poem = fetch(urls[i])
-    with open("authors/"+authors[i]+"/"+poems[i].encode('ascii','ignore'), 'wb') as poemfile:
+    poem = fetch(urls[i])
+    with open("authors/"+authors1[i]+"/"+poems[i].encode('ascii','ignore'), 'wb') as poemfile:
         poemfile.write(poem[0].encode('ascii','ignore'))
 

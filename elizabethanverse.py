@@ -29,7 +29,7 @@ for i, table in enumerate(html.select('table')):
 			urls.append(baseurl+a['href'])
 
 for author in authors:
-	author = re.sub(r'.*Anonymous','Anonymous', author.encode('ascii','ignore'))
+	author = re.sub(r'.*Anonymous*','Anonymous', author.encode('ascii','ignore'))
 	author = re.sub(r'.*by\s','', author.encode('ascii','ignore'))
 	authors1.append(author)
 
@@ -57,6 +57,6 @@ for author in authors1:
 
 for i in range(len(authors)):
 	poem = fetch(urls[i])
-	with open("authors/"+authors[i]+"/"+poems[i].encode('ascii','ignore'), 'wb') as poemfile:
+	with open("authors/"+authors1[i]+"/"+poems[i].encode('ascii','ignore'), 'wb') as poemfile:
 		poemfile.write(poem[0].encode('ascii','ignore'))
 
