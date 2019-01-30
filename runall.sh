@@ -1,4 +1,6 @@
 mkdir ./authors
+rm -r authors/*/combined.txt
+rm -r authors/*/label.txt
 python ./anthmagverse.py 
 python ./anthmasspoets.py 
 python ./elizabethanverse.py 
@@ -7,4 +9,4 @@ python ./newpoetry.py
 python ./oxfordengverse.py 
 python ./oxfordvictverse.py 
 python ./restorationverse.py 
-
+python ./cleanandlabel.py
