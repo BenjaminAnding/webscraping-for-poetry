@@ -1,11 +1,13 @@
 from bs4 import BeautifulSoup
-import urllib
-import os
-import sys
+import os, sys
+if sys.version_info[0] == 3:
+    from urllib.request import urlopen
+else:
+    from urllib import urlopen
 
 
 baseurl = 'https://www.bartleby.com'
-response = urllib.urlopen('https://www.bartleby.com/272/index1.html')
+response = urlopen('https://www.bartleby.com/272/index1.html')
 raw_html = response.read()
 html = BeautifulSoup(raw_html, 'lxml')
 
@@ -30,7 +32,7 @@ print(len(authors), len(poems))
 #print urls
 
 def fetch(url):
-	response = urllib.urlopen(url)
+	response = urlopen(url)
 	raw_html = response.read()
 	html = BeautifulSoup(raw_html, 'html.parser')
 	poem = []
@@ -48,6 +50,6 @@ for author in authors:
 
 for i in range(len(authors)):
 	poem = fetch(urls[i])
-	with open("authors/"+authors[i]+"/"+poems[i].encode('ascii','ignore'), 'wb') as poemfile:
+	with open("authors/"+authors[i]+"/"+poems[i], 'wb') as poemfile:
             poemfile.write(poem[0].encode('ascii','ignore'))
 
